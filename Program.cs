@@ -6,6 +6,8 @@
     Console.WriteLine("Rock,Paper,Scissors");
     string userHand = ChooseHand();
     Console.WriteLine(userHand);
+    string computerHand = GetComputerHand();
+    Console.WriteLine(computerHand);
   }
   static string ChooseHand()
   {
@@ -34,4 +36,25 @@
 
     return "You have chosen " + userInput;
   }
+
+  static string GetComputerHand()
+  {
+    Random random = new Random();
+    int computerChoice = random.Next(1, 4);
+    string computerHand = "";
+    switch (computerChoice)
+    {
+      case 1:
+        computerHand = "Rock";
+        break;
+      case 2:
+        computerHand = "Paper";
+        break;
+      case 3:
+        computerHand = "Scissors";
+        break;
+    }
+    return "The computer has chosen " + computerHand;
+  }
 }
+
