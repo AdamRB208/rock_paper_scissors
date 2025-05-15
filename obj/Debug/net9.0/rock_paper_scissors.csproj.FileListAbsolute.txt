@@ -1,0 +1,14 @@
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/bin/Debug/net9.0/rock_paper_scissors
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/bin/Debug/net9.0/rock_paper_scissors.deps.json
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/bin/Debug/net9.0/rock_paper_scissors.runtimeconfig.json
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/bin/Debug/net9.0/rock_paper_scissors.dll
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/bin/Debug/net9.0/rock_paper_scissors.pdb
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/obj/Debug/net9.0/rock_paper_scissors.GeneratedMSBuildEditorConfig.editorconfig
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/obj/Debug/net9.0/rock_paper_scissors.AssemblyInfoInputs.cache
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/obj/Debug/net9.0/rock_paper_scissors.AssemblyInfo.cs
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/obj/Debug/net9.0/rock_paper_scissors.csproj.CoreCompileInputs.cache
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/obj/Debug/net9.0/rock_paper_scissors.dll
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/obj/Debug/net9.0/refint/rock_paper_scissors.dll
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/obj/Debug/net9.0/rock_paper_scissors.pdb
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/obj/Debug/net9.0/rock_paper_scissors.genruntimeconfig.cache
+/Users/adamborup/CodeWorks/week8/rock_paper_scissors/obj/Debug/net9.0/ref/rock_paper_scissors.dll
