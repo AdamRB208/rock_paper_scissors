@@ -8,6 +8,8 @@
     Console.WriteLine(userHand);
     string computerHand = GetComputerHand();
     Console.WriteLine(computerHand);
+    string result = DetermineWinner(userHand, computerHand);
+    Console.WriteLine(result);
   }
   static string ChooseHand()
   {
@@ -55,6 +57,24 @@
         break;
     }
     return "The computer has chosen " + computerHand;
+  }
+
+  static string DetermineWinner(string userHand, string computerHand)
+  {
+    if (userHand == computerHand)
+    {
+      return "It's a tie!";
+    }
+    else if ((userHand == "Rock" && computerHand == "Scissors") ||
+             (userHand == "Paper" && computerHand == "Rock") ||
+             (userHand == "Scissors" && computerHand == "Paper"))
+    {
+      return "You win!";
+    }
+    else
+    {
+      return "Computer wins!";
+    }
   }
 }
 
