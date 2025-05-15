@@ -1,5 +1,9 @@
 ﻿internal class Program
 {
+  static int UserWins = 0;
+  static int ComputerWins = 0;
+  static int Ties = 0;
+
   private static void Main()
   {
     Console.Clear();
@@ -10,6 +14,8 @@
     Console.WriteLine(computerHand);
     string result = DetermineWinner(userHand, computerHand);
     Console.WriteLine(result);
+    UpdateScore(result);
+    Console.WriteLine(DisplayScore());
   }
   static string ChooseHand()
   {
@@ -74,6 +80,26 @@
     else
     {
       return "Computer wins!";
+    }
+  }
+
+  static string DisplayScore()
+  {
+    return $"Score: You {UserWins} - Computer {ComputerWins} - Ties {Ties}";
+  }
+  static void UpdateScore(string result)
+  {
+    if (result == "You win!")
+    {
+      UserWins++;
+    }
+    else if (result == "Computer wins!")
+    {
+      ComputerWins++;
+    }
+    else
+    {
+      Ties++;
     }
   }
 }
