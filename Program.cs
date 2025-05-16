@@ -11,11 +11,12 @@
     string userHand = ChooseHand();
     Console.WriteLine(userHand);
     string computerHand = GetComputerHand();
-    Console.WriteLine(computerHand);
+    Console.WriteLine("" + computerHand);
     string result = DetermineWinner(userHand, computerHand);
     Console.WriteLine(result);
     UpdateScore(result);
     Console.WriteLine(DisplayScore());
+    playAgain();
   }
   static string ChooseHand()
   {
@@ -42,7 +43,7 @@
         break;
     }
 
-    return "You have chosen " + userInput;
+    return userInput;
   }
 
   static string GetComputerHand()
@@ -62,7 +63,7 @@
         computerHand = "Scissors";
         break;
     }
-    return "The computer has chosen " + computerHand;
+    return computerHand;
   }
 
   static string DetermineWinner(string userHand, string computerHand)
@@ -101,6 +102,22 @@
     {
       Ties++;
     }
+  }
+
+  static string playAgain()
+  {
+    Console.WriteLine("Do you want to play again? (y/n)");
+    string playAgain = Console.ReadLine();
+    if (playAgain.ToLower() == "y")
+    {
+      Main();
+    }
+    else
+    {
+      Console.WriteLine("Thanks for playing!");
+      Environment.Exit(0);
+    }
+    return playAgain;
   }
 }
 
