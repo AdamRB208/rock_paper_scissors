@@ -1,5 +1,8 @@
-﻿internal class Program
+﻿using rock_paper_scissors.models;
+
+internal class Program
 {
+  // static List<Players> PlayerNames = [];
   static int UserWins = 0;
   static int ComputerWins = 0;
   static int Ties = 0;
@@ -121,3 +124,4 @@
   }
 }
 
+//TODO create add player method 
