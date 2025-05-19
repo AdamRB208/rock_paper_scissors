@@ -29,14 +29,14 @@ internal class Program
     }
     if (Players.Count > 1)
     {
-      PlayTwoPlayerRound();
+      PlayVsPlayerRound();
     }
     else
     {
       PlayerVsComputerRound();
     }
     Console.WriteLine(DisplayScore());
-    playAgain();
+    PlayAgain();
   }
 
   static Player AddPlayer()
@@ -48,7 +48,7 @@ internal class Program
     return newPlayer;
   }
 
-  static void PlayTwoPlayerRound()
+  static void PlayVsPlayerRound()
   {
     Console.WriteLine($"{Players[0].Name}, its your turn");
     string playerOneHand = ChooseHand();
@@ -74,6 +74,7 @@ internal class Program
     string result = DetermineWinner(userHand, computerHand);
     Console.WriteLine(result);
     UpdateScore(result);
+    DisplayScore();
   }
   static string ChooseHand()
   {
@@ -105,10 +106,6 @@ internal class Program
 
   static string GetComputerHand()
   {
-    if (Players.Count > 1)
-    {
-      return DetermineWinner(Players[0].Name, Players[1].Name);
-    }
     Random random = new Random();
     int computerChoice = random.Next(1, 4);
     string computerHand = "";
@@ -127,6 +124,7 @@ internal class Program
     return computerHand;
   }
 
+  //TODO create separate method for 1player and 2player
   static string DetermineWinner(string userHand, string computerHand)
   {
     if (userHand == computerHand)
@@ -145,6 +143,7 @@ internal class Program
     }
   }
 
+  //TODO create separate method for 1player and 2player
   static string DisplayScore()
   {
     if (Players.Count > 1)
@@ -172,7 +171,7 @@ internal class Program
     }
   }
 
-  static string playAgain()
+  static string PlayAgain()
   {
     Console.WriteLine("Do you want to play again? (y/n)");
     string playAgain = Console.ReadLine();
@@ -180,11 +179,15 @@ internal class Program
     {
       if (Players.Count > 1)
       {
-        PlayTwoPlayerRound();
+        PlayVsPlayerRound();
+        Console.WriteLine(DisplayScore());
+        PlayAgain();
       }
       else
       {
         PlayerVsComputerRound();
+        Console.WriteLine(DisplayScore());
+        PlayAgain();
       }
     }
     else
