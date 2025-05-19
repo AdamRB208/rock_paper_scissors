@@ -1,8 +1,9 @@
-﻿using rock_paper_scissors.models;
+﻿
+using rock_paper_scissors.models;
 
 internal class Program
 {
-  // static List<Players> PlayerNames = [];
+  static List<Player> Players = [];
   static int UserWins = 0;
   static int ComputerWins = 0;
   static int Ties = 0;
@@ -11,15 +12,68 @@ internal class Program
   {
     Console.Clear();
     Console.WriteLine("Rock,Paper,Scissors");
+    Player playerOne = AddPlayer();
+    Players.Add(playerOne);
+    Console.WriteLine("Would you like to add a second player? (y/n)");
+    string playerCount = Console.ReadLine();
+    if (playerCount.ToLower() == "y")
+    {
+      Player playerTwo = AddPlayer();
+      Players.Add(playerTwo);
+      for (int i = 0; i < Players.Count; i++)
+      {
+        Player player = Players[i];
+        Console.WriteLine(player);
+      }
+      Console.Clear();
+    }
+    if (Players.Count > 1)
+    {
+      PlayTwoPlayerRound();
+    }
+    else
+    {
+      PlayerVsComputerRound();
+    }
+    Console.WriteLine(DisplayScore());
+    playAgain();
+  }
+
+  static Player AddPlayer()
+  {
+    Console.WriteLine("Enter Players Name...");
+    string playerName = Console.ReadLine();
+    Console.WriteLine($"Players Name Is {playerName}");
+    Player newPlayer = new Player(playerName);
+    return newPlayer;
+  }
+
+  static void PlayTwoPlayerRound()
+  {
+    Console.WriteLine($"{Players[0].Name}, its your turn");
+    string playerOneHand = ChooseHand();
+    Console.Clear();
+
+    Console.WriteLine($"{Players[1].Name}, its your turn");
+    string playerTwoHand = ChooseHand();
+    Console.Clear();
+
+    Console.WriteLine($"{Players[0].Name} chose {playerOneHand}");
+    Console.WriteLine($"{Players[1].Name} chose {playerTwoHand}");
+    string result = DetermineWinner(playerOneHand, playerTwoHand);
+    Console.WriteLine(result);
+    UpdateScore(result);
+  }
+
+  static void PlayerVsComputerRound()
+  {
     string userHand = ChooseHand();
     Console.WriteLine(userHand);
     string computerHand = GetComputerHand();
-    Console.WriteLine("" + computerHand);
+    Console.WriteLine("Computer chose " + computerHand);
     string result = DetermineWinner(userHand, computerHand);
     Console.WriteLine(result);
     UpdateScore(result);
-    Console.WriteLine(DisplayScore());
-    playAgain();
   }
   static string ChooseHand()
   {
@@ -51,6 +105,10 @@ internal class Program
 
   static string GetComputerHand()
   {
+    if (Players.Count > 1)
+    {
+      return DetermineWinner(Players[0].Name, Players[1].Name);
+    }
     Random random = new Random();
     int computerChoice = random.Next(1, 4);
     string computerHand = "";
@@ -79,7 +137,7 @@ internal class Program
              (userHand == "Paper" && computerHand == "Rock") ||
              (userHand == "Scissors" && computerHand == "Paper"))
     {
-      return "You win!";
+      return $"You win!";
     }
     else
     {
@@ -89,7 +147,14 @@ internal class Program
 
   static string DisplayScore()
   {
-    return $"Score: You {UserWins} - Computer {ComputerWins} - Ties {Ties}";
+    if (Players.Count > 1)
+    {
+      return $"Score: {Players[0].Name}: {UserWins} - {Players[1].Name} {UserWins} - Ties {Ties}";
+    }
+    else
+    {
+      return $"Score: {Players[0].Name}: {UserWins} - Computer: {ComputerWins} - Ties {Ties}";
+    }
   }
   static void UpdateScore(string result)
   {
@@ -113,7 +178,14 @@ internal class Program
     string playAgain = Console.ReadLine();
     if (playAgain.ToLower() == "y")
     {
-      Main();
+      if (Players.Count > 1)
+      {
+        PlayTwoPlayerRound();
+      }
+      else
+      {
+        PlayerVsComputerRound();
+      }
     }
     else
     {
@@ -124,4 +196,4 @@ internal class Program
   }
 }
 
-//TODO create add player method 
+

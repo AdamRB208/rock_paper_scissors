@@ -1,9 +1,9 @@
 namespace rock_paper_scissors.models;
 
-public class Players
+public class Player
 {
 
-  public Players(string name)
+  public Player(string name)
   {
     Name = name;
     Score = 0;
